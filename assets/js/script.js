@@ -6,6 +6,13 @@ if(tempMusic){
     music.src = tempMusic
 }
 
+window.addEventListener("DOMContentLoaded", function() {
+    document.body.addEventListener("click", function() {
+        music.play();
+    }, { once: true }); // Hanya sekali dijalankan
+});
+
+
 // MUSIC BUTTON
 var isPlaying = true
 

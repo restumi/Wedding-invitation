@@ -6,8 +6,8 @@
     --grey: #ccc;
     --light-grey: #d4d4d4;
     --verry-light-grey: #eee;
-    --dark-grey: ;
-    --dark: ;
+    --dark-grey: #999;
+    --dark: #151515;
     --black: #000;
 }
 
@@ -76,8 +76,8 @@ body.transition{
 }
 
 .nav .nav-music {
-    width: 90;
-    height: 90;
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
     background-color: var(--dark);
     position: absolute;
