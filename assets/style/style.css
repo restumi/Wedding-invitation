@@ -1,6 +1,7 @@
 :root{
     --pink: #f14e95;
     --pink-muted: #fdf4f8;
+    --pink-light: #fcdbe9;
     --pink-hover: #d84686;
     --white: #fff;
     --grey: #ccc;
@@ -34,6 +35,78 @@ body.transition{
     }
 }
 
+/* DOOR SECTION */
+.open{
+    background-color: var(--white);
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    z-index: 3;
+    overflow-y: hidden;
+    transition: transform 1s ease-in-out;
+}
+
+.doors{
+    width: 400px;
+    height: 500px;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.door{
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    transform-origin: center left;
+    transition: transform 1s, filter 0.5s;
+    overflow: hidden;
+}
+
+.door img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.door.left{
+    left: 22px;
+}
+
+.door.right{
+    right: 22px;
+    transform-origin: center right;
+}
+
+.heading-door{
+    position: absolute;
+    text-align: center;
+    width: 50%;
+    font-size: 54px;
+    margin: auto;
+}
+
+.heading-door.left{
+    left: 0;
+}
+
+.heading-door.right{
+    right: 0;
+}
+
+.huruf-sambung{
+    font-family: 'Sacramento', cursive;
+}
+
+/* NAVBAR */
 .nav{
     position: fixed;
     bottom: 0;
@@ -99,10 +172,8 @@ body.transition{
     }
 }
 
-.huruf-sambung{
-    font-family: 'Sacramento', cursive;
-}
 
+/* HERO SECTION */
 #hero-section h1{
     font-size: 64px;
 }
@@ -149,3 +220,45 @@ body.transition{
     color: var(--white);
 }
 
+/* PEMBUKA SECTION */
+
+.text-pink{
+    color: var(--pink);
+}
+
+.pembuka-section{
+    padding-top: 75px;
+}
+
+.section-title{
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.section-title p{
+    margin: 15px auto 0 auto;
+}
+
+.section-bg{
+    background-color: var(--pink-muted);
+}
+
+#content-section{
+    overflow-x: auto;
+}
+
+::-webkit-scrollbar{
+    width: 8px;
+}
+
+::-webkit-scrollbar-track{
+    background: var(--pink-light);
+}
+
+::-webkit-scrollbar-thumb{
+    background: var(--pink);
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background: var(--pink-hover);
+}

@@ -1,3 +1,6 @@
+// DATA AOS
+AOS.init()
+
 // MUSIC
 var tempMusic = ''
 music = document.querySelector('.music')
@@ -6,11 +9,38 @@ if(tempMusic){
     music.src = tempMusic
 }
 
-window.addEventListener("DOMContentLoaded", function() {
-    document.body.addEventListener("click", function() {
-        music.play();
-    }, { once: true }); // Hanya sekali dijalankan
-});
+// DOOR OPEN
+function mulai(){
+    // BACK TO TOP
+    window.scrollTo(0,0)
+
+    // SOUND DOOR
+    var soundDoor = document.querySelector('.sound-door')
+    soundDoor.play()
+
+    // DOOR SECTION
+    var doorSection = $('#door-section')
+    var doors = document.querySelectorAll('.door')
+    doors.forEach(function(door, index){
+        var direction = (index === 0) ? -1 : 1
+        door.style.transform = 'rotateY(' + (70 * direction) + 'deg)'
+    })
+
+    // SET TIME OUT
+    setTimeout(function(){
+        // music play
+        music.play()
+        doorSection.css('transform', 'scale(6)')
+    }, 600)
+
+    // SET TIME OUT 
+    setTimeout(function(){
+        doorSection.css('opacity', 0)
+        $('body').removeClass('overflow-hidden')
+        $('body').addClass('transition')
+        doorSection.css('display', 'none')
+    },  2000)
+}
 
 
 // MUSIC BUTTON
