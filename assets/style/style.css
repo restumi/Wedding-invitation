@@ -78,11 +78,11 @@ body.transition{
 }
 
 .door.left{
-    left: 22px;
+    left: 11px;
 }
 
 .door.right{
-    right: 22px;
+    right: 11px;
     transform-origin: center right;
 }
 
