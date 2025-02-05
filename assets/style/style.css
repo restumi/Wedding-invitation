@@ -78,11 +78,11 @@ body.transition{
 }
 
 .door.left{
-    left: 11px;
+    left: 10px;
 }
 
 .door.right{
-    right: 11px;
+    right: 10px;
     transform-origin: center right;
 }
 
@@ -292,4 +292,10 @@ body.transition{
 .btn-pink:hover{
     background: var(--pink-hover);
     color: var(--white);
+}
+
+/* LOKASI SECTION */
+.border-pink{
+    border-radius: 15px;
+    border: 2px solid var(--pink);
 }
