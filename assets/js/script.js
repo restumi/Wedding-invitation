@@ -52,7 +52,7 @@ function toggleMusic(event){
     const musicButton = document.getElementById('music-button')
 
     if (isPlaying){
-        musicButton.innerHTML = '<i class="fas fa-fw fa-pause"></i>'
+        musicButton.innerHTML = '<i class="fas fa-fw fa-play"></i>'
         musicButton.classList.remove('rotate')
         musicButton.style.transform = 'translateY(0)'
         music.pause()
@@ -117,3 +117,85 @@ var x = setInterval(function(){
 // const nama = urlParams.get('n')
 // const namaSambutan = document.querySelector('#nama-sambutan')
 // namaSambutan.innerText = `${panggilan} ${nama},`
+
+// GIFT CARD
+// copy text
+function copyText(el){
+    var content = jQuery(el).siblings('div.card-container').find('div.card-number').text().trim()
+
+    var temp = document.createElement("textarea")
+
+    document.body.appendChild(temp)
+
+    temp.value = content.replace(/\s+/g, '')
+    temp.select()
+
+    document.execCommand('copy')
+
+    document.body.removeChild(temp)
+
+    jQuery(el).text('Disalin')
+
+    setTimeout(function(){
+        jQuery(el).html(`<i class="fas fa-regular fa-copy"></i> Copy`)
+    }, 2000)
+}
+
+// RSVP SECTION
+window.addEventListener("load", function(){
+    const form = document.getElementById('rsvp-form')
+    form.addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const status = document.getElementById('status').value
+        const nama = document.getElementById('status').value.trim()
+
+        if(nama === ""){
+            Swal.fire({
+                icon: "error",
+                text: "nama harus di isi"
+            })
+            return;
+        }
+
+        if(status == "0"){
+            Swal.fire({
+                icon: "error",
+                text: "Pilih salah satu status terlebih dahulu"
+            })
+            return;
+        }
+
+        const data = new FormData(form);
+        const action = e.target.action;
+        const input = form.querySelectorAll('input, select, button')
+        input.forEach(input => {
+            input.disabled = true
+        })
+
+        fetch(action, {
+            method: 'POST',
+            body: data
+        })
+
+        .then(() => {
+            Swal.fire({
+                icon: "success",
+                text: "Terima kasih atas partisipasinya"
+            })
+        })
+
+        .catch((error) => {
+            Swal.fire({
+                icon: "error",
+                text: error
+            })
+        })
+
+        .finally(() => {
+            input.forEach(input => {
+                input.disabled = false
+            })
+        })
+    })
+})
