@@ -357,15 +357,8 @@ body{
     font-size: 13px;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: var(--white);
 }
-.timeline-datee{
-    display: block;
-    margin-bottom: 20px;
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
+
 
 .timeline-body > p, .timeline-body > ul{
     margin-bottom: 0;
